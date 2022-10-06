@@ -1,5 +1,5 @@
 import { initializeApp } from 'firebase/app';
-import { getAuth, signInWithRedirect, signInWithPopup, GoogleAuthProvider, createUserWithEmailAndPassword } from 'firebase/auth';
+import { getAuth, signInWithPopup, GoogleAuthProvider, createUserWithEmailAndPassword,signInWithEmailAndPassword} from 'firebase/auth';
 import { getFirestore, doc, getDoc, setDoc } from 'firebase/firestore';
 //
 //
@@ -57,57 +57,12 @@ const createAuthUserWithEmailAndPassword = async (email, password) =>{
     return await createUserWithEmailAndPassword(auth, email, password);
 }
 
+const signInAuthUserWithEmailAndPassword = async (email, password) =>{
 
+    if(!email || !password) return;
 
+    return await signInWithEmailAndPassword(auth, email, password);
+}
 
-// const firebaseApp = initializeApp(firebaseConfig);
-//
-// const googleProvider = new GoogleAuthProvider();
-//
-// googleProvider.setCustomParameters({
-//     prompt: 'select_account'
-// });
-//
-// const auth = getAuth();
-//
-// const signInWithGooglePopup = () => signInWithPopup(auth, googleProvider);
-//
-// const db = getFirestore();
-//
-// const createUserDocumentFromAuth = async (userAuth) => {
-//
-//     const userDocRef = doc(db, 'users', userAuth.uid);
-//
-//     console.log(db, userAuth.uid);
-//
-//     const userSnapshot = await getDoc(userDocRef);
-//
-//     if (!userSnapshot.exists()){
-//         const {displayName, email} = userAuth;
-//         const createdAt = new Date();
-//
-//         try {
-//             await setDoc(userDocRef, {displayName, email, createdAt});
-//
-//         } catch (error) {
-//             console.log('error creating the user', error.message);
-//         }
-//     }
-//
-//     return userDocRef;
-// };
-//
-// const createAuthUserWithEmailAndPassword = async (email, password) =>{
-//
-//     if(!email || !password) return;
-//
-//     return await createUserDocumentFromAuth(auth, email, password);
-// }
-
-
-
-
-
-
-export {auth, signInWithGooglePopup, db, createUserDocumentFromAuth, createAuthUserWithEmailAndPassword}
+export {auth, signInWithGooglePopup, db, createUserDocumentFromAuth, createAuthUserWithEmailAndPassword, signInAuthUserWithEmailAndPassword}
 
