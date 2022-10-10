@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 
-import {signInAuthUserWithEmailAndPassword, createUserDocumentFromAuth, signInWithGooglePopup} from "../../utils";
+import {signInAuthUserWithEmailAndPassword, signInWithGooglePopup} from "../../utils";
 import {FormInput} from "../form-input/form-input.component";
 import './sign-in-form.styles.scss'
 import {Button} from "../buttons/button.component";
@@ -23,8 +23,7 @@ const SignInForm = () => {
     };
 
     const signInWithGoogle = async () => {
-        const {user} = await signInWithGooglePopup();
-        await createUserDocumentFromAuth(user);
+        await signInWithGooglePopup();
     };
 
 
@@ -33,8 +32,7 @@ const SignInForm = () => {
 
 
         try {
-            const response = await signInAuthUserWithEmailAndPassword(email, password);
-            console.log(response);
+            const {user} = await signInAuthUserWithEmailAndPassword(email, password);
             resetFormFields();
 
         } catch (error) {
