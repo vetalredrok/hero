@@ -8,3 +8,4 @@ export * from './product-card/product-card';
 export * from './cart-icon/cart-icon';
 export * from './cart-dropdown/cart-dropdown.component';
 export * from './cart-item/cart-item';
+export * from './checkout-item/checkout-item.component';
