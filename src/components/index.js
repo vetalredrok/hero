@@ -1,4 +1,4 @@
-export * from './category-item/category-item';
+export * from './directory-item/directory-item';
 export * from './sign-up-form/sign-up-form';
 export * from './directory/directory.component';
 export * from './form-input/form-input.component';
@@ -9,3 +9,4 @@ export * from './cart-icon/cart-icon';
 export * from './cart-dropdown/cart-dropdown.component';
 export * from './cart-item/cart-item';
 export * from './checkout-item/checkout-item.component';
+export * from './category-preview/category-preview.component';
